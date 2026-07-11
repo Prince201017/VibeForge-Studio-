@@ -1,8 +1,35 @@
 # Team Members Registry
 
-| Name       | Tool  | Role   | Joined (timestamp)   |
-|------------|-------|--------|----------------------|
-| V0.A1      | V0    | Head   | 2026-07-12 00:00 UTC |
+| Name       | Tool  | Role   | Focus Area                          | Joined (timestamp)   |
+|------------|-------|--------|-------------------------------------|----------------------|
+| V0.A1      | V0    | Head   | Infrastructure, Editor Shell, Coord | 2026-07-12 10:00 UTC |
+| (Pending)  | Claude| Member | Geometry Engine (Procedural Ops)    | TBD                  |
+| (Pending)  | Claude| Member | Animation & Timeline (Keyframing)   | TBD                  |
+| (Pending)  | V0    | Member | AI Integration & Python Services    | TBD                  |
+| (Pending)  | Claude| Member | Viewport & Rendering (Canvas/WebGL) | TBD                  |
+
+## Architecture Overview
+
+**Tech Stack:**
+- Frontend: Next.js 16 (App Router) + React + TypeScript + Tailwind CSS
+- Backend: Python FastAPI (AI services, asset processing, procedural generation)
+- Rendering: Canvas, SVG, WebGL (Three.js/R3F), WebGPU
+- Database: Neon PostgreSQL (project storage, layer data, history)
+- Storage: Vercel Blob (rendered assets, exports)
+- Compute: Web Workers, WebAssembly, FastAPI background tasks
+
+**Module Breakdown for Parallel Development:**
+1. **V0.A1 (Head)** → Infrastructure (Next.js App Router, Python FastAPI, Neon DB, Tailwind setup, auth schema), Editor Shell UI scaffold, Team coordination
+2. **Claude.A2** → Geometry Engine (SVG path operations, Canvas procedural systems, parameter nodes, boolean operations, UI for geo panel)
+3. **Claude.A3** → Animation System (Timeline component, keyframe editor, graph editor, easing curves, animation playback)
+4. **V0.A4** → AI Integration (Python FastAPI service, design generation endpoints, reference image analysis, prompt handling, model integration)
+5. **Claude.A5** → Viewport Renderer (Canvas/WebGL rendering loop, layer composition, real-time preview, export preparation)
+
+**Communication Protocol:** 
+- Cross-agent decisions → `communication_gate.md`
+- Code ownership → Tag functions with `// [AgentName] description`
+- API Contracts → Document in `communication_gate.md` before coding
+- Blockers → Log immediately in communication gate
 
 ## Status Log (version/archive events)
 | File            | Action                         | New Version     | Timestamp             |

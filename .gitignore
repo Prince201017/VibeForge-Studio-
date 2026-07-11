@@ -1,0 +1,43 @@
+# [V0.A1] ForgeOS .gitignore
+
+# Next.js
+.next
+out
+node_modules
+*.pem
+.env*.local
+.vercel
+
+# Python
+python-service/__pycache__
+python-service/*.pyc
+python-service/venv
+python-service/env
+python-service/.venv
+python-service/.env
+python-service/*.egg-info
+python-service/dist
+python-service/build
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+dist
+build
+coverage
+
+# Temporary
+*.tmp
+*.bak
+.cache
