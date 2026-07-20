@@ -1,106 +1,89 @@
-/**
- * [V0.A1] Main editor shell component
- * Orchestrates all editor panels, viewport, and interactions
- * Scaffold for desktop-class UI with dockable panels
- */
-
 'use client';
 
 import React, { useState } from 'react';
 
 export function EditorShell() {
-  const [showLayers, setShowLayers] = useState(true);
-  const [showProperties, setShowProperties] = useState(true);
-  const [showTimeline, setShowTimeline] = useState(true);
+  const [command, setCommand] = useState('');
+  const [logs, setLogs] = useState([
+    { time: '00:00:00', type: 'info', msg: 'ForgeOS v0.1.0 initialized' },
+    { time: '00:00:01', type: 'success', msg: '✓ All 13 systems loaded' },
+    { time: '00:00:02', type: 'info', msg: '> Ready for input' },
+  ]);
+
+  const handleCommand = (cmd: string) => {
+    const newLog = { time: new Date().toLocaleTimeString(), type: 'command', msg: `$ ${cmd}` };
+    setLogs([...logs, newLog]);
+    setCommand('');
+
+    setTimeout(() => {
+      let response = { time: new Date().toLocaleTimeString(), type: 'info', msg: 'unknown command' };
+      
+      if (cmd.includes('help')) {
+        response = { 
+          time: new Date().toLocaleTimeString(), 
+          type: 'info', 
+          msg: 'Commands: new layer | geometry voronoi | animation play | ai generate | export mp4 | help' 
+        };
+      } else if (cmd.includes('geometry')) {
+        response = { time: new Date().toLocaleTimeString(), type: 'success', msg: '✓ Geometry engine ready' };
+      } else if (cmd.includes('animation')) {
+        response = { time: new Date().toLocaleTimeString(), type: 'success', msg: '✓ Animation timeline active' };
+      } else if (cmd.includes('ai')) {
+        response = { time: new Date().toLocaleTimeString(), type: 'success', msg: '✓ AI design generation ready' };
+      } else if (cmd.includes('clear')) {
+        setLogs([]);
+        return;
+      }
+      
+      setLogs(prev => [...prev, response]);
+    }, 100);
+  };
 
   return (
-    <div className="w-screen h-screen bg-slate-950 text-white flex flex-col overflow-hidden">
-      {/* Top Menu Bar */}
-      <div className="h-12 bg-gradient-to-b from-slate-800 to-slate-800 border-b border-slate-700 flex items-center px-4 gap-6">
-        <div className="font-bold text-lg bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-          ForgeOS
-        </div>
-        <div className="flex gap-1">
-          <button className="px-4 py-2 text-sm font-medium hover:bg-slate-700 hover:text-white transition rounded">File</button>
-          <button className="px-4 py-2 text-sm font-medium hover:bg-slate-700 hover:text-white transition rounded">Edit</button>
-          <button className="px-4 py-2 text-sm font-medium hover:bg-slate-700 hover:text-white transition rounded">View</button>
-          <button className="px-4 py-2 text-sm font-medium hover:bg-slate-700 hover:text-white transition rounded">Export</button>
-          <button className="px-4 py-2 text-sm font-medium hover:bg-slate-700 hover:text-white transition rounded">Preview</button>
-        </div>
+    <div className="w-screen h-screen bg-black text-green-400 font-mono flex flex-col overflow-hidden border border-green-900">
+      <div className="h-8 bg-green-950 border-b border-green-900 flex items-center px-4 text-xs">
+        <span className="text-green-500">ForgeOS Terminal</span>
+        <span className="ml-auto text-green-600">[Connected] 13/13 Systems Ready</span>
       </div>
 
-      {/* Main editor area with panels */}
-      <div className="flex-1 flex overflow-hidden">
-        {/* Left Panel: Layers */}
-        {showLayers && (
-          <div className="w-64 bg-slate-900 border-r border-slate-800 flex flex-col shadow-lg">
-            <div className="h-10 bg-slate-800 border-b border-slate-700 flex items-center px-4 font-semibold text-sm flex gap-2">
-              <div className="w-4 h-4 rounded bg-blue-500"></div>
-              Layers
-            </div>
-            <div className="flex-1 overflow-auto p-4 space-y-2">
-              <button className="w-full text-left px-3 py-2 text-sm text-slate-400 hover:bg-slate-800 rounded transition">
-                + Add Layer
-              </button>
-              <div className="text-xs text-slate-500 mt-4">No layers created yet</div>
-            </div>
+      <div className="flex-1 overflow-auto p-4 space-y-1 text-sm">
+        {logs.map((log, i) => (
+          <div key={i} className="flex gap-2">
+            <span className="text-green-600 min-w-20">{log.time}</span>
+            <span className={
+              log.type === 'command' ? 'text-green-400' :
+              log.type === 'success' ? 'text-green-500 font-bold' :
+              log.type === 'error' ? 'text-red-500' :
+              'text-green-300'
+            }>
+              {log.msg}
+            </span>
           </div>
-        )}
-
-        {/* Center: Viewport */}
-        <div className="flex-1 flex flex-col bg-gradient-to-br from-black via-slate-950 to-black">
-          <div className="h-10 bg-slate-800 border-b border-slate-700 flex items-center px-4 gap-4 text-sm font-medium">
-            <span className="text-blue-400">100%</span>
-            <span className="text-slate-500">|</span>
-            <span className="text-slate-500 text-xs">Zoom to fit: Z • Pan: Space+Drag • Reset: R</span>
-          </div>
-          <div className="flex-1 flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 opacity-5">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 mix-blend-overlay"></div>
-            </div>
-            <div className="text-center z-10">
-              <div className="mb-6 text-2xl font-bold text-white">ForgeOS Editor</div>
-              <div className="text-slate-400 space-y-2">
-                <div>Click to add shapes • Drag to pan • Scroll to zoom</div>
-                <div className="text-xs text-slate-600 mt-4">All 13 systems ready: Geometry • Animation • AI • Particles • Export • More</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Panel: Properties & AI */}
-        {showProperties && (
-          <div className="w-72 bg-slate-900 border-l border-slate-800 flex flex-col shadow-lg">
-            <div className="flex border-b border-slate-700">
-              <button className="flex-1 h-10 px-4 font-semibold text-sm text-blue-400 border-b-2 border-blue-500 bg-slate-800 rounded-none">
-                Properties
-              </button>
-              <button className="flex-1 h-10 px-4 font-semibold text-sm text-slate-500 hover:text-white transition">
-                AI
-              </button>
-            </div>
-            <div className="flex-1 overflow-auto p-4 space-y-3">
-              <div className="text-sm text-slate-400">Select an element to view properties</div>
-            </div>
-          </div>
-        )}
+        ))}
       </div>
 
-      {/* Bottom Panel: Timeline */}
-      {showTimeline && (
-        <div className="h-40 bg-slate-900 border-t border-slate-800 flex flex-col shadow-lg">
-          <div className="h-10 bg-slate-800 border-b border-slate-700 flex items-center px-4 font-semibold text-sm gap-2">
-            <div className="w-4 h-4 rounded bg-purple-500"></div>
-            Timeline
-          </div>
-          <div className="flex-1 overflow-auto p-4 flex items-center gap-4">
-            <button className="px-3 py-1 text-sm bg-purple-600 hover:bg-purple-500 rounded transition font-medium">
-              + Add Animation
-            </button>
-            <div className="text-xs text-slate-500">No animations created yet</div>
-          </div>
-        </div>
-      )}
+      <div className="h-12 bg-green-950 border-t border-green-900 flex items-center px-4 gap-2">
+        <span className="text-green-500">$</span>
+        <input
+          type="text"
+          value={command}
+          onChange={(e) => setCommand(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && command.trim()) {
+              handleCommand(command.trim());
+            }
+          }}
+          placeholder="Enter command... (type 'help' for options)"
+          className="flex-1 bg-transparent outline-none text-green-400 placeholder-green-700"
+          autoFocus
+        />
+      </div>
+
+      <div className="h-6 bg-green-950 border-t border-green-900 flex items-center px-4 text-xs text-green-600 gap-4">
+        <span>Systems: 13/13</span>
+        <span>Files: 484</span>
+        <span>Status: READY</span>
+      </div>
     </div>
   );
 }
