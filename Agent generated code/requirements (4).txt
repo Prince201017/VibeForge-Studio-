@@ -1,4 +1,0 @@
-# [Claude.DB] Runtime dependencies for the database persistence layer
-asyncpg>=0.29.0
-SQLAlchemy>=2.0.25
-redis>=5.0.1
