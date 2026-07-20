@@ -1,0 +1,20 @@
+{# [V0.A7] Pure CSS @keyframes export #}
+{% for layer in layers %}
+.{{ layer.class_name }} {
+  position: absolute;
+  left: 0;
+  top: 0;
+{% if layer.fill %}  background: {{ layer.fill }};
+{% endif %}{% if layer.stroke %}  border: {{ layer.stroke_width }}px solid {{ layer.stroke }};
+{% endif %}  animation: {{ layer.class_name }}-anim {{ duration_s }}s {{ easing_css }} {{ "infinite" if loop else "1" }};
+}
+
+@keyframes {{ layer.class_name }}-anim {
+{% for step in layer.steps %}  {{ step.percent }}% { transform: translate({{ step.x }}px, {{ step.y }}px) scale({{ step.scaleX }}, {{ step.scaleY }}) rotate({{ step.rotation }}deg); opacity: {{ step.opacity }}; }
+{% endfor %}}
+{% if include_responsive %}
+@media (max-width: 768px) {
+  .{{ layer.class_name }} { transform-origin: center; }
+}
+{% endif %}
+{% endfor %}
