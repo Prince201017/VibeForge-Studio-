@@ -1,0 +1,131 @@
+{
+  "id": "psys_mrpq2a8j_37",
+  "name": "Pixel",
+  "presetId": "pixel",
+  "emitters": [
+    {
+      "id": "emitter_mrpq2a8j_35",
+      "shape": "point",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rateOverTime": [
+        {
+          "t": 0,
+          "rate": 200
+        }
+      ],
+      "bursts": [],
+      "maxParticlesPerFrame": 200,
+      "looping": true,
+      "duration": 1,
+      "spawn": {
+        "lifetime": [
+          0.5,
+          1.5
+        ],
+        "speed": [
+          0.5,
+          2
+        ],
+        "direction": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "directionSpread": 3.141592653589793,
+        "scale": [
+          1,
+          1
+        ],
+        "rotation": [
+          0,
+          0
+        ],
+        "angularVelocity": [
+          0,
+          0
+        ],
+        "colorStart": {
+          "r": 0,
+          "g": 255,
+          "b": 140,
+          "a": 1
+        }
+      },
+      "enabled": true
+    }
+  ],
+  "forces": [
+    {
+      "id": "f_mrpq2a8j_36",
+      "type": "gravity",
+      "enabled": true,
+      "strength": 1,
+      "direction": {
+        "x": 0,
+        "y": -1,
+        "z": 0
+      }
+    }
+  ],
+  "collisions": {
+    "planes": [],
+    "spheres": [],
+    "boxes": []
+  },
+  "noise": [
+    {
+      "type": "curl",
+      "frequency": 0.08,
+      "amplitude": 0.6
+    }
+  ],
+  "propertyCurves": {
+    "opacityOverLife": [
+      {
+        "t": 0,
+        "value": 1
+      },
+      {
+        "t": 1,
+        "value": 0
+      }
+    ]
+  },
+  "render": {
+    "geometry": "point",
+    "blendMode": "additive",
+    "softParticles": true,
+    "softParticleDistance": 0.5,
+    "depthSort": false,
+    "trails": {
+      "enabled": false,
+      "length": 0,
+      "fadeRate": 0.9
+    },
+    "hdrIntensity": 1,
+    "useGPU": true,
+    "lod": {
+      "enabled": true,
+      "distanceThresholds": [
+        10,
+        30,
+        60
+      ],
+      "particleReductionFactors": [
+        1,
+        0.5,
+        0.2
+      ]
+    }
+  },
+  "maxParticles": 50000,
+  "simulationSpace": "world",
+  "timeScale": 1,
+  "seed": 1337,
+  "createdAt": 1784340164179,
+  "updatedAt": 1784340164179
+}

@@ -1,0 +1,148 @@
+{
+  "id": "psys_mrpq2a8l_60",
+  "name": "Bubbles",
+  "presetId": "bubbles",
+  "emitters": [
+    {
+      "id": "emitter_mrpq2a8l_57",
+      "shape": "box",
+      "position": {
+        "x": 0,
+        "y": -2,
+        "z": 0
+      },
+      "rateOverTime": [
+        {
+          "t": 0,
+          "rate": 20
+        }
+      ],
+      "bursts": [],
+      "maxParticlesPerFrame": 200,
+      "looping": true,
+      "duration": 1,
+      "spawn": {
+        "lifetime": [
+          3,
+          6
+        ],
+        "speed": [
+          0.3,
+          0.7
+        ],
+        "direction": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "directionSpread": 0.2,
+        "scale": [
+          0.1,
+          0.3
+        ],
+        "rotation": [
+          0,
+          0
+        ],
+        "angularVelocity": [
+          0,
+          0
+        ],
+        "colorStart": {
+          "r": 180,
+          "g": 220,
+          "b": 255,
+          "a": 0.4
+        }
+      },
+      "enabled": true,
+      "box": {
+        "size": {
+          "x": 2,
+          "y": 0.1,
+          "z": 2
+        }
+      }
+    }
+  ],
+  "forces": [
+    {
+      "id": "f_mrpq2a8l_58",
+      "type": "gravity",
+      "enabled": true,
+      "strength": -0.5,
+      "direction": {
+        "x": 0,
+        "y": 1,
+        "z": 0
+      }
+    },
+    {
+      "id": "f_mrpq2a8l_59",
+      "type": "curlNoise",
+      "enabled": true,
+      "strength": 0.15
+    }
+  ],
+  "collisions": {
+    "planes": [],
+    "spheres": [],
+    "boxes": []
+  },
+  "noise": [
+    {
+      "type": "curl",
+      "frequency": 0.08,
+      "amplitude": 0.6
+    }
+  ],
+  "propertyCurves": {
+    "opacityOverLife": [
+      {
+        "t": 0,
+        "value": 0.4
+      },
+      {
+        "t": 0.9,
+        "value": 0.4
+      },
+      {
+        "t": 1,
+        "value": 0
+      }
+    ]
+  },
+  "render": {
+    "geometry": "sphere",
+    "blendMode": "screen",
+    "softParticles": true,
+    "softParticleDistance": 0.5,
+    "depthSort": false,
+    "trails": {
+      "enabled": false,
+      "length": 0,
+      "fadeRate": 0.9
+    },
+    "hdrIntensity": 1,
+    "useGPU": true,
+    "lod": {
+      "enabled": true,
+      "distanceThresholds": [
+        10,
+        30,
+        60
+      ],
+      "particleReductionFactors": [
+        1,
+        0.5,
+        0.2
+      ]
+    }
+  },
+  "maxParticles": 50000,
+  "simulationSpace": "world",
+  "timeScale": 1,
+  "seed": 1337,
+  "createdAt": 1784340164181,
+  "updatedAt": 1784340164181
+}

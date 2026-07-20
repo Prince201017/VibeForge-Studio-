@@ -1,0 +1,136 @@
+{
+  "id": "psys_mrpq2a8j_34",
+  "name": "Liquid",
+  "presetId": "liquid",
+  "emitters": [
+    {
+      "id": "emitter_mrpq2a8j_32",
+      "shape": "point",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rateOverTime": [
+        {
+          "t": 0,
+          "rate": 0
+        }
+      ],
+      "bursts": [
+        {
+          "time": 0,
+          "count": 200
+        }
+      ],
+      "maxParticlesPerFrame": 200,
+      "looping": false,
+      "duration": 3,
+      "spawn": {
+        "lifetime": [
+          2,
+          3
+        ],
+        "speed": [
+          1,
+          3
+        ],
+        "direction": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "directionSpread": 0.5,
+        "scale": [
+          0.1,
+          0.2
+        ],
+        "rotation": [
+          0,
+          0
+        ],
+        "angularVelocity": [
+          0,
+          0
+        ],
+        "colorStart": {
+          "r": 60,
+          "g": 140,
+          "b": 255,
+          "a": 0.85
+        }
+      },
+      "enabled": true
+    }
+  ],
+  "forces": [
+    {
+      "id": "f_mrpq2a8j_33",
+      "type": "gravity",
+      "enabled": true,
+      "strength": 6,
+      "direction": {
+        "x": 0,
+        "y": -1,
+        "z": 0
+      }
+    }
+  ],
+  "collisions": {
+    "planes": [],
+    "spheres": [],
+    "boxes": []
+  },
+  "noise": [
+    {
+      "type": "curl",
+      "frequency": 0.08,
+      "amplitude": 0.6
+    }
+  ],
+  "propertyCurves": {
+    "opacityOverLife": [
+      {
+        "t": 0,
+        "value": 0.85
+      },
+      {
+        "t": 1,
+        "value": 0.85
+      }
+    ]
+  },
+  "render": {
+    "geometry": "sphere",
+    "blendMode": "normal",
+    "softParticles": true,
+    "softParticleDistance": 0.5,
+    "depthSort": false,
+    "trails": {
+      "enabled": false,
+      "length": 0,
+      "fadeRate": 0.9
+    },
+    "hdrIntensity": 1,
+    "useGPU": true,
+    "lod": {
+      "enabled": true,
+      "distanceThresholds": [
+        10,
+        30,
+        60
+      ],
+      "particleReductionFactors": [
+        1,
+        0.5,
+        0.2
+      ]
+    }
+  },
+  "maxParticles": 30000,
+  "simulationSpace": "world",
+  "timeScale": 1,
+  "seed": 1337,
+  "createdAt": 1784340164179,
+  "updatedAt": 1784340164179
+}
