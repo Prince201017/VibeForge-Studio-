@@ -1,99 +1,53 @@
-@import 'tailwindcss';
+/**
+ * [ForgeOS UI] Companion global styles.
+ * Import once at the app root (e.g. in your root layout) alongside
+ * Tailwind's base/components/utilities. These cover the few things
+ * Tailwind utility classes can't reach: native range-thumb pseudo
+ * elements and the indeterminate progress-bar keyframes.
+ */
 
-/* [V0.A1] ForgeOS Design System */
-
-@theme {
-  --font-sans: 'Inter', 'SF Pro Display', sans-serif;
-  --font-mono: 'Fira Code', 'Courier New', monospace;
-  --radius-xs: 0.25rem;
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
+.range-thumb::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: white;
+  border: 2px solid #6366f1;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
-@layer base {
-  :root {
-    /* Dark professional editor palette */
-    --color-background: 12 12 12; /* #0c0c0c */
-    --color-foreground: 240 240 240; /* #f0f0f0 */
-    --color-primary: 79 172 254; /* #4facfe - vibrant blue */
-    --color-secondary: 98 84 243; /* #6254f3 - purple */
-    --color-accent: 34 197 94; /* #22c55e - green */
-    --color-panel: 25 25 25; /* #191919 - slightly lighter than bg */
-    --color-border: 51 51 51; /* #333333 */
-    --color-hover: 38 38 38; /* #262626 */
-  }
+.range-thumb::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: white;
+  border: 2px solid #6366f1;
+  cursor: pointer;
+  pointer-events: auto;
+}
 
-  * {
-    @apply border-border;
-  }
+.range-thumb::-webkit-slider-runnable-track {
+  background: transparent;
+}
 
-  html {
-    @apply bg-background text-foreground;
+@keyframes indeterminate {
+  0% {
+    transform: translateX(-100%);
   }
-
-  body {
-    @apply font-sans antialiased;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  input, textarea, select {
-    @apply bg-panel text-foreground placeholder-gray-500;
-  }
-
-  button {
-    @apply transition-colors duration-150;
-  }
-
-  /* Scrollbar styling for editor panels */
-  ::-webkit-scrollbar {
-    @apply w-2 h-2;
-  }
-
-  ::-webkit-scrollbar-track {
-    @apply bg-transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-border rounded hover:bg-hover;
+  100% {
+    transform: translateX(300%);
   }
 }
 
-@layer components {
-  /* [V0.A1] Reusable editor UI components */
-
-  .panel-base {
-    @apply bg-panel border border-border rounded-md shadow-panel;
+/* Respect reduced-motion preferences across the library. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-
-  .panel-header {
-    @apply px-lg py-md border-b border-border font-semibold text-sm;
-  }
-
-  .panel-content {
-    @apply p-md;
-  }
-
-  .icon-button {
-    @apply p-sm rounded-sm hover:bg-hover transition-colors;
-  }
-
-  .input-base {
-    @apply px-sm py-xs rounded-sm border border-border focus:outline-none focus:ring-2 focus:ring-primary;
-  }
-
-  .label-base {
-    @apply text-xs font-medium text-foreground/70;
-  }
-}
-
-/* Canvas and viewport rendering */
-canvas {
-  @apply block w-full h-full;
-}
-
-/* SVG default styling */
-svg {
-  @apply select-none;
 }
