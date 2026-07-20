@@ -1,61 +1,46 @@
 // [V0.A1] Master exports for all lib systems
-// Barrel exports for easy imports across the project
+// All generated code is in lib/utils/
 
-// Geometry Engine
-export * from './geometry/engine';
-export * from './geometry/operations';
-export * from './geometry/svg';
-export * from './geometry/canvas';
-export * from './geometry/types';
-export { useGeometry } from './geometry/hook';
+// Core utilities and engines
+export * from './utils/geometry';
+export * from './utils/operations';
+export * from './utils/engine';
+export * from './utils/timeline';
+export * from './utils/easing';
+export * from './utils/animation';
+export * from './utils/canvas-renderer';
+export * from './utils/physics';
+export * from './utils/forces';
+export * from './utils/simulation';
+export * from './utils/sync-engine';
+export * from './utils/operational-transform';
+export * from './utils/presence';
+export * from './utils/export';
+export * from './utils/formats';
+export * from './utils/css-generator';
+export * from './utils/gsap-generator';
+export * from './utils/framer-motion-generator';
+export * from './utils/tailwind-generator';
+export * from './utils/validators';
+export * from './utils/presets';
+export * from './utils/particles';
 
-// Animation System
-export * from './animation/engine';
-export * from './animation/keyframe';
-export * from './animation/easing';
-export * from './animation/timeline';
-export { useAnimation } from './animation/hook';
-
-// AI Integration
-export * from './ai/generator';
-export * from './ai/analyzer';
-export * from './ai/types';
-export { useAI } from './ai/hook';
-
-// Viewport Renderer
-export * from './renderer/engine';
-export * from './renderer/canvas-renderer';
-export * from './renderer/webgl-renderer';
-export * from './renderer/compositor';
-export { useRenderer } from './renderer/hook';
-
-// Particle System
-export * from './particles/engine';
-export * from './particles/emitter';
-export * from './particles/physics';
-export * from './particles/effects';
-export { useParticles } from './particles/hook';
-
-// Export Pipeline
-export * from './export/engine';
-export * from './export/exporters';
-export * from './export/optimizer';
-export { useExport } from './export/hook';
-
-// Asset Manager
-export * from './assets/manager';
-export * from './assets/storage';
-export * from './assets/search';
-export { useAssets } from './assets/hook';
-
-// Collaboration
-export * from './collaboration/engine';
-export * from './collaboration/sync';
-export * from './collaboration/presence';
-export { useCollaboration } from './collaboration/hook';
+// Custom hooks
+export { useGeometry } from './utils/hooks';
+export { useAnimation } from './utils/hooks';
+export { useParticles } from './utils/useParticles';
+export { usePhysics } from './utils/usePhysics';
+export { useKeyboard } from './utils/useKeyboard';
+export { useMediaQuery } from './utils/useMediaQuery';
+export { useClickOutside } from './utils/useClickOutside';
+export { useDebounce } from './utils/useDebounce';
+export { useTimeout } from './utils/useTimeout';
+export { useEmitter } from './utils/useEmitter';
 
 // Types
 export * from './types';
+export * from './utils/types';
 
 // Store integration
-export { useEditorStore } from '../lib/store';
+export { useEditorStore } from './store';
+export { keyboardManager } from './keyboard';
