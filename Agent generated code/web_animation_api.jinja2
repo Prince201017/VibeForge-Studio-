@@ -1,0 +1,9 @@
+{# [V0.A7] Native Web Animation API export - zero dependencies #}
+export function play{{ component_name }}(root{{ ": HTMLElement" if typescript }} = document.body) {
+{% for layer in layers %}  root.querySelector("#{{ layer.class_name }}")?.animate(
+    [
+{% for s in layer.steps %}      { transform: "translate({{ s.x }}px, {{ s.y }}px) scale({{ s.scaleX }}, {{ s.scaleY }}) rotate({{ s.rotation }}deg)", opacity: {{ s.opacity }}, offset: {{ s.offset }} },
+{% endfor %}    ],
+    { duration: {{ duration_ms }}, easing: "{{ waapi_easing }}", iterations: {{ "Infinity" if loop else "1" }}, fill: "forwards" }
+  );
+{% endfor %}}

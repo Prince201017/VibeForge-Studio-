@@ -1,0 +1,15 @@
+{
+  "name": "@forgeos/mobile-responsive",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Mobile & Responsive Adaptation system for ForgeOS (specs/14_MOBILE_RESPONSIVE_NEEDS.md)",
+  "main": "index.ts",
+  "types": "index.ts",
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}
