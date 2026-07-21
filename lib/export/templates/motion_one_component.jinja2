@@ -1,0 +1,15 @@
+{# [V0.A7] Motion One (motion.dev) export #}
+import { animate } from "motion";
+
+export function play{{ component_name }}(root{{ ": HTMLElement" if typescript }} = document.body) {
+{% for layer in layers %}  animate(
+    root.querySelector("#{{ layer.class_name }}"),
+    {
+      transform: [
+{% for s in layer.steps %}        "translate({{ s.x }}px, {{ s.y }}px) scale({{ s.scaleX }}, {{ s.scaleY }}) rotate({{ s.rotation }}deg)",
+{% endfor %}      ],
+      opacity: [{% for s in layer.steps %}{{ s.opacity }}{{ ", " if not loop.last }}{% endfor %}],
+    },
+    { duration: {{ duration_s }}, easing: "{{ motion_one_easing }}", repeat: {{ "Infinity" if loop else "0" }} }
+  );
+{% endfor %}}

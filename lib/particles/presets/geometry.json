@@ -1,0 +1,131 @@
+{
+  "id": "psys_mrpq2a8k_49",
+  "name": "Geometry",
+  "presetId": "geometry",
+  "emitters": [
+    {
+      "id": "emitter_mrpq2a8k_47",
+      "shape": "shape",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rateOverTime": [
+        {
+          "t": 0,
+          "rate": 100
+        }
+      ],
+      "bursts": [],
+      "maxParticlesPerFrame": 200,
+      "looping": true,
+      "duration": 1,
+      "spawn": {
+        "lifetime": [
+          1,
+          2
+        ],
+        "speed": [
+          0.5,
+          1
+        ],
+        "direction": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "directionSpread": 3.141592653589793,
+        "scale": [
+          0.2,
+          0.5
+        ],
+        "rotation": [
+          0,
+          6.283185307179586
+        ],
+        "angularVelocity": [
+          -2,
+          2
+        ],
+        "colorStart": {
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 1
+        }
+      },
+      "enabled": true
+    }
+  ],
+  "forces": [
+    {
+      "id": "f_mrpq2a8k_48",
+      "type": "gravity",
+      "enabled": true,
+      "strength": 0.5,
+      "direction": {
+        "x": 0,
+        "y": -1,
+        "z": 0
+      }
+    }
+  ],
+  "collisions": {
+    "planes": [],
+    "spheres": [],
+    "boxes": []
+  },
+  "noise": [
+    {
+      "type": "curl",
+      "frequency": 0.08,
+      "amplitude": 0.6
+    }
+  ],
+  "propertyCurves": {
+    "rotationOverLife": [
+      {
+        "t": 0,
+        "value": 0
+      },
+      {
+        "t": 1,
+        "value": 12.566370614359172
+      }
+    ]
+  },
+  "render": {
+    "geometry": "mesh",
+    "blendMode": "normal",
+    "softParticles": true,
+    "softParticleDistance": 0.5,
+    "depthSort": false,
+    "trails": {
+      "enabled": false,
+      "length": 0,
+      "fadeRate": 0.9
+    },
+    "hdrIntensity": 1,
+    "useGPU": true,
+    "lod": {
+      "enabled": true,
+      "distanceThresholds": [
+        10,
+        30,
+        60
+      ],
+      "particleReductionFactors": [
+        1,
+        0.5,
+        0.2
+      ]
+    }
+  },
+  "maxParticles": 50000,
+  "simulationSpace": "world",
+  "timeScale": 1,
+  "seed": 1337,
+  "createdAt": 1784340164180,
+  "updatedAt": 1784340164180
+}

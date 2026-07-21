@@ -1,0 +1,173 @@
+{
+  "id": "psys_mrpq2a8h_17",
+  "name": "Sparks",
+  "presetId": "sparks",
+  "emitters": [
+    {
+      "id": "emitter_mrpq2a8h_14",
+      "shape": "point",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rateOverTime": [
+        {
+          "t": 0,
+          "rate": 0
+        }
+      ],
+      "bursts": [
+        {
+          "time": 0,
+          "count": 60,
+          "cycles": 1
+        }
+      ],
+      "maxParticlesPerFrame": 200,
+      "looping": false,
+      "duration": 1,
+      "spawn": {
+        "lifetime": [
+          0.3,
+          0.8
+        ],
+        "speed": [
+          3,
+          8
+        ],
+        "direction": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "directionSpread": 3.141592653589793,
+        "scale": [
+          0.05,
+          0.15
+        ],
+        "rotation": [
+          0,
+          0
+        ],
+        "angularVelocity": [
+          0,
+          0
+        ],
+        "colorStart": {
+          "r": 255,
+          "g": 210,
+          "b": 100,
+          "a": 1
+        }
+      },
+      "enabled": true
+    }
+  ],
+  "forces": [
+    {
+      "id": "f_mrpq2a8h_15",
+      "type": "gravity",
+      "enabled": true,
+      "strength": 4,
+      "direction": {
+        "x": 0,
+        "y": -1,
+        "z": 0
+      }
+    },
+    {
+      "id": "f_mrpq2a8h_16",
+      "type": "drag",
+      "enabled": true,
+      "strength": 0.5
+    }
+  ],
+  "collisions": {
+    "planes": [],
+    "spheres": [],
+    "boxes": []
+  },
+  "noise": [
+    {
+      "type": "curl",
+      "frequency": 0.08,
+      "amplitude": 0.6
+    }
+  ],
+  "propertyCurves": {
+    "opacityOverLife": [
+      {
+        "t": 0,
+        "value": 1
+      },
+      {
+        "t": 1,
+        "value": 0
+      }
+    ],
+    "colorOverLife": [
+      {
+        "t": 0,
+        "color": {
+          "r": 255,
+          "g": 240,
+          "b": 180,
+          "a": 1
+        }
+      },
+      {
+        "t": 1,
+        "color": {
+          "r": 255,
+          "g": 60,
+          "b": 20,
+          "a": 0
+        }
+      }
+    ],
+    "scaleOverLife": [
+      {
+        "t": 0,
+        "value": 1
+      },
+      {
+        "t": 1,
+        "value": 0.2
+      }
+    ]
+  },
+  "render": {
+    "geometry": "quad",
+    "blendMode": "additive",
+    "softParticles": true,
+    "softParticleDistance": 0.5,
+    "depthSort": false,
+    "trails": {
+      "enabled": true,
+      "length": 8,
+      "fadeRate": 0.8
+    },
+    "hdrIntensity": 1,
+    "useGPU": true,
+    "lod": {
+      "enabled": true,
+      "distanceThresholds": [
+        10,
+        30,
+        60
+      ],
+      "particleReductionFactors": [
+        1,
+        0.5,
+        0.2
+      ]
+    }
+  },
+  "maxParticles": 50000,
+  "simulationSpace": "world",
+  "timeScale": 1,
+  "seed": 1337,
+  "createdAt": 1784340164177,
+  "updatedAt": 1784340164177
+}

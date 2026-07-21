@@ -1,0 +1,154 @@
+{
+  "id": "psys_mrpq2a8i_24",
+  "name": "Snow",
+  "presetId": "snow",
+  "emitters": [
+    {
+      "id": "emitter_mrpq2a8i_21",
+      "shape": "box",
+      "position": {
+        "x": 0,
+        "y": 5,
+        "z": 0
+      },
+      "rateOverTime": [
+        {
+          "t": 0,
+          "rate": 60
+        }
+      ],
+      "bursts": [],
+      "maxParticlesPerFrame": 200,
+      "looping": true,
+      "duration": 1,
+      "spawn": {
+        "lifetime": [
+          4,
+          8
+        ],
+        "speed": [
+          0.2,
+          0.5
+        ],
+        "direction": {
+          "x": 0,
+          "y": -1,
+          "z": 0
+        },
+        "directionSpread": 0.6,
+        "scale": [
+          0.05,
+          0.15
+        ],
+        "rotation": [
+          0,
+          6.283185307179586
+        ],
+        "angularVelocity": [
+          -0.5,
+          0.5
+        ],
+        "colorStart": {
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 0.9
+        }
+      },
+      "enabled": true,
+      "box": {
+        "size": {
+          "x": 10,
+          "y": 0.1,
+          "z": 10
+        }
+      }
+    }
+  ],
+  "forces": [
+    {
+      "id": "f_mrpq2a8i_22",
+      "type": "gravity",
+      "enabled": true,
+      "strength": 0.3,
+      "direction": {
+        "x": 0,
+        "y": -1,
+        "z": 0
+      }
+    },
+    {
+      "id": "f_mrpq2a8i_23",
+      "type": "wind",
+      "enabled": true,
+      "strength": 0.15,
+      "direction": {
+        "x": 1,
+        "y": 0,
+        "z": 0
+      },
+      "turbulence": 0.3
+    }
+  ],
+  "collisions": {
+    "planes": [],
+    "spheres": [],
+    "boxes": []
+  },
+  "noise": [
+    {
+      "type": "curl",
+      "frequency": 0.08,
+      "amplitude": 0.6
+    }
+  ],
+  "propertyCurves": {
+    "opacityOverLife": [
+      {
+        "t": 0,
+        "value": 0
+      },
+      {
+        "t": 0.1,
+        "value": 0.9
+      },
+      {
+        "t": 1,
+        "value": 0.7
+      }
+    ]
+  },
+  "render": {
+    "geometry": "quad",
+    "blendMode": "normal",
+    "softParticles": true,
+    "softParticleDistance": 0.5,
+    "depthSort": false,
+    "trails": {
+      "enabled": false,
+      "length": 0,
+      "fadeRate": 0.9
+    },
+    "hdrIntensity": 1,
+    "useGPU": true,
+    "lod": {
+      "enabled": true,
+      "distanceThresholds": [
+        10,
+        30,
+        60
+      ],
+      "particleReductionFactors": [
+        1,
+        0.5,
+        0.2
+      ]
+    }
+  },
+  "maxParticles": 80000,
+  "simulationSpace": "world",
+  "timeScale": 1,
+  "seed": 1337,
+  "createdAt": 1784340164178,
+  "updatedAt": 1784340164178
+}
